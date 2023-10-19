@@ -1,0 +1,42 @@
+<html>
+	<head>
+	  	<meta charset="UTF-8">
+		<script src="http://127.0.0.1:8081/socket.io/socket.io.js"></script>
+	  	<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+	  	<script language="javascript" type="text/javascript" src="sketch.js"></script>
+	  	<script language="javascript" type="text/javascript" src="osc.js"></script>
+	  	<script src="https://cdn.jsdelivr.net/npm/osc-js/dist/osc.min.js"></script>
+
+	  	<style> 
+	  		body {
+	            margin: 50;
+	            overflow: hidden;
+	            transition: background-color 0.5s;
+	            background-color: #ff00cc;
+	        }
+	  	</style>
+	</head>
+
+	<body>
+		<script>
+		    // Function to change the background color
+		    function changeBackgroundColor(color) {
+		        document.body.style.backgroundColor = color;
+		    }
+
+		    // Listen for console messages
+		    window.addEventListener('message', function (event) {
+		        // Check if the received message is the one you're looking for
+		    	if (event.data === '/2/push2') {
+		    		console.log("TEST MENSAJE RECIBIDO");
+		    		changeBackgroundColor('lightblue'); // Change this to the desired color
+		        }else{
+		        	changeBackgroundColor('#fff');
+		        }
+		    });
+		</script>
+	</body>
+</html>
+
+
+
